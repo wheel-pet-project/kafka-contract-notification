@@ -14,4 +14,11 @@
         <RepositoryUrl>https://gitlab.com/carsharing-backend/contracts/kafka/notificationkafkamessages</RepositoryUrl>
     </PropertyGroup>
 
+    <ItemGroup>
+        <None Update="icon.png">
+            <Pack>True</Pack>
+            <PackagePath></PackagePath>
+        </None>
+    </ItemGroup>
+
 </Project>
