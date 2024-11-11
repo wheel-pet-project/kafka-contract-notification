@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <PackageId>Notification.KafkaMessages</PackageId>
+        <Title>Notification.KafkaMessages</Title>
+        <Authors>nikitaberezhko</Authors>
+        <Description>Сообщения, потребляемые микросервисом Notification.</Description>
+    </PropertyGroup>
+
+</Project>
