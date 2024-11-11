@@ -8,6 +8,10 @@
         <Title>Notification.KafkaMessages</Title>
         <Authors>nikitaberezhko</Authors>
         <Description>Сообщения, потребляемые микросервисом Notification.</Description>
+        <PackageIcon>icon.png</PackageIcon>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageProjectUrl>https://gitlab.com/carsharing-backend</PackageProjectUrl>
+        <RepositoryUrl>https://gitlab.com/carsharing-backend/contracts/kafka/notificationkafkamessages</RepositoryUrl>
     </PropertyGroup>
 
 </Project>
