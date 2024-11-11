@@ -1,0 +1,33 @@
+image: mcr.microsoft.com/dotnet/sdk:8.0
+
+stages:
+  - build
+  - deploy
+
+build-job:
+  stage: build
+  script:
+  - dotnet build -c Release
+  artifacts:
+    untracked: true
+
+package-job:
+  stage: build
+  needs:
+    - job: build-job
+      artifacts: true
+  script:
+  - dotnet pack -c Release --no-build --output nupgk
+  artifacts:
+    paths:
+      - nupgk
+
+deploy-job:
+  stage: deploy
+  needs:
+    - job: package-job
+      artifacts: true
+  script:
+  - echo "Pushing package to $PACKAGE_SOURCE"
+  - dotnet nuget add source "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/nuget/index.json" --name gitlab --username nikitaberezhko --password ${PACKAGE_REGISTRY_PAT} --store-password-in-clear-text
+  - dotnet nuget push nupgk/*.nupkg --api-key  ${PACKAGE_REGISTRY_PAT} --source gitlab
