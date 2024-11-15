@@ -1,5 +1,5 @@
 namespace Messages;
 
-public record SendRecoverPasswordEmail(
+public record SendRecoverPasswordEmailCommand(
     string ToEmail, 
     string RecoveryUrl);

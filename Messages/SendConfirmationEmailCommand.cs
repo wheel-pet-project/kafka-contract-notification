@@ -1,5 +1,5 @@
 namespace Messages;
 
-public record SendConfirmationEmail(
+public record SendConfirmationEmailCommand(
     string ToEmail, 
     string ConfirmationUrl);
