@@ -1,4 +1,4 @@
-namespace Messages;
+namespace NotificationMessages;
 
 public record SendConfirmationEmailCommand(
     string ToEmail, 
