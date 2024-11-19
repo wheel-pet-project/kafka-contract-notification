@@ -12,6 +12,7 @@
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <PackageProjectUrl>https://gitlab.com/carsharing-backend</PackageProjectUrl>
         <RepositoryUrl>https://gitlab.com/carsharing-backend/contracts/kafka/notificationkafkamessages</RepositoryUrl>
+        <Version>1.0.1</Version>
     </PropertyGroup>
 
     <ItemGroup>

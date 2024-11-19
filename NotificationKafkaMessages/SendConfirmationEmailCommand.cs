@@ -1,5 +1,5 @@
 namespace NotificationKafkaMessages;
 
 public record SendConfirmationEmailCommand(
-    string ToEmail, 
+    string ToAddress, 
     string ConfirmationUrl);
