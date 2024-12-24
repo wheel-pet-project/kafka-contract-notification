@@ -1,5 +1,5 @@
 namespace NotificationKafkaMessages;
 
-public record SendRecoverPasswordEmailCommand(
+public record SendRecoverPasswordEmailMessage(
     string ToAddress, 
     string RecoveryUrl);
