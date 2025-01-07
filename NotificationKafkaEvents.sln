@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotificationKafkaMessages", "NotificationKafkaMessages\NotificationKafkaMessages.csproj", "{8E6454CE-2F85-41C2-87D1-C1ABA5C4ED98}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotificationKafkaEvents", "NotificationKafkaEvents\NotificationKafkaEvents.csproj", "{8E6454CE-2F85-41C2-87D1-C1ABA5C4ED98}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
