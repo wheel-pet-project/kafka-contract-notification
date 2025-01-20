@@ -7,13 +7,13 @@ public class PasswordRecoverTokenCreated
     public PasswordRecoverTokenCreated(Guid eventId, string emailAddress, string recoveryUrl)
     {
         EventId = eventId;
-        EmailAddressAddress = emailAddress;
+        EmailAddress = emailAddress;
         RecoveryUrl = recoveryUrl;
     }
 
     public Guid EventId { get; init; }
     
-    public string EmailAddressAddress { get; init; }
+    public string EmailAddress { get; init; }
     
     public string RecoveryUrl { get; init; }
 };
