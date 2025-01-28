@@ -13,7 +13,7 @@
         <PackageProjectUrl>https://gitlab.com/carsharing-backend</PackageProjectUrl>
         <RepositoryUrl>https://gitlab.com/carsharing-backend/contracts/kafka/notificationkafkamessages</RepositoryUrl>
         <Version>1.2.1</Version>
-        <RootNamespace>NotificationKafkaEvents</RootNamespace>
+        <RootNamespace>To.NotificationKafkaEvents</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>

@@ -1,4 +1,4 @@
-namespace NotificationKafkaEvents;
+namespace To.NotificationKafkaEvents;
 
 public class PasswordRecoverTokenCreated
 {
