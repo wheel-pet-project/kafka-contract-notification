@@ -5,36 +5,22 @@
 1. **Создан GitHub Actions workflow** (`.github/workflows/ci.yml`):
    - Заменяет функциональность GitLab CI
    - Автоматическая сборка при push в main/master
-   - Публикация пакетов при создании тегов
+   - Публикация пакетов в GitHub Packages при создании тегов
    - Использует GitHub Packages вместо GitLab Package Registry
 
 2. **Обновлен файл проекта**:
    - Изменены URL репозитория и проекта на GitHub
    - Сохранена совместимость с .NET 8.0
 
-3. **Создана расширенная версия** (`.github/workflows/ci-extended.yml`):
-   - Поддержка публикации в nuget.org
-   - Поддержка приватных NuGet реестров
-   - Условная публикация в зависимости от наличия секретов
-
 ## Необходимые секреты в GitHub
 
-### Для базовой функциональности (GitHub Packages):
-- **GITHUB_TOKEN** - автоматически предоставляется, настройка не требуется
+**Дополнительная настройка секретов не требуется**. GitHub Actions автоматически предоставляет `GITHUB_TOKEN` для публикации в GitHub Packages.
 
-### Для публикации в nuget.org:
-- **NUGET_API_KEY** - API ключ от nuget.org
+## Настройка
 
-### Для приватного реестра:
-- **NUGET_API_KEY** - API ключ для приватного реестра
-- **NUGET_SOURCE_URL** - URL приватного реестра
-- **NUGET_USERNAME** - имя пользователя для приватного реестра
-
-## Настройка секретов
-
-1. Перейдите в настройки репозитория: `Settings → Secrets and variables → Actions`
-2. Нажмите `New repository secret`
-3. Добавьте необходимые секреты
+1. Убедитесь, что репозиторий перенесен в GitHub
+2. Проверьте, что workflow файл находится в `.github/workflows/ci.yml`
+3. Настройка секретов не требуется
 
 ## Удаление старого GitLab CI
 
@@ -62,10 +48,22 @@ git push
 
 | GitLab CI | GitHub Actions |
 |-----------|----------------|
-| `PACKAGE_REGISTRY_PAT` | `GITHUB_TOKEN` |
+| `PACKAGE_REGISTRY_PAT` | `GITHUB_TOKEN` (автоматически) |
 | GitLab Package Registry | GitHub Packages |
 | `CI_API_V4_URL` | Автоматически определяется |
 | `CI_PROJECT_ID` | `github.repository_owner` |
+
+## Использование пакета
+
+Для использования пакета в других проектах добавьте источник GitHub Packages:
+
+```bash
+dotnet nuget add source https://nuget.pkg.github.com/{owner}/index.json \
+  --name github \
+  --username {username} \
+  --password {github_token} \
+  --store-password-in-clear-text
+```
 
 ## Дополнительные возможности
 

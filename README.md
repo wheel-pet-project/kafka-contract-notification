@@ -4,32 +4,18 @@
 
 ## Настройка CI/CD
 
-Этот проект использует GitHub Actions для автоматической сборки и публикации NuGet пакетов.
+Этот проект использует GitHub Actions для автоматической сборки и публикации NuGet пакетов в GitHub Packages.
 
 ### Необходимые секреты
 
-Для работы CI/CD pipeline вам нужно настроить следующие секреты в настройках репозитория (Settings → Secrets and variables → Actions):
-
-#### Обязательные секреты:
-- **GITHUB_TOKEN** - автоматически предоставляется GitHub Actions, дополнительная настройка не требуется
-
-#### Дополнительные секреты (если нужно публиковать в другие реестры):
-- **NUGET_API_KEY** - API ключ для публикации в nuget.org
-- **NUGET_SOURCE_URL** - URL источника NuGet (например, для приватного реестра)
+Для работы CI/CD pipeline **дополнительная настройка секретов не требуется**. GitHub Actions автоматически предоставляет `GITHUB_TOKEN` для публикации в GitHub Packages.
 
 ### Настройка публикации
 
-1. **GitHub Packages** (по умолчанию):
-   - Пакеты автоматически публикуются в GitHub Packages при создании тега
-   - Используется встроенный `GITHUB_TOKEN`
-
-2. **NuGet.org** (опционально):
-   - Добавьте секрет `NUGET_API_KEY` с вашим API ключом от nuget.org
-   - Раскомментируйте соответствующий шаг в `.github/workflows/ci.yml`
-
-3. **Приватный реестр** (опционально):
-   - Добавьте секреты `NUGET_API_KEY` и `NUGET_SOURCE_URL`
-   - Раскомментируйте соответствующий шаг в `.github/workflows/ci.yml`
+**GitHub Packages**:
+- Пакеты автоматически публикуются в GitHub Packages при создании тега
+- Используется встроенный `GITHUB_TOKEN`
+- Пакеты доступны по адресу: `https://github.com/{owner}/{repo}/packages`
 
 ### Запуск публикации
 
@@ -41,6 +27,26 @@
    git tag v1.2.2
    git push origin v1.2.2
    ```
+
+### Использование пакета
+
+Для использования пакета в других проектах добавьте источник GitHub Packages:
+
+```bash
+dotnet nuget add source https://nuget.pkg.github.com/{owner}/index.json \
+  --name github \
+  --username {username} \
+  --password {github_token} \
+  --store-password-in-clear-text
+```
+
+Или добавьте в `nuget.config`:
+
+```xml
+<packageSources>
+  <add key="github" value="https://nuget.pkg.github.com/{owner}/index.json" />
+</packageSources>
+```
 
 ### Локальная разработка
 
