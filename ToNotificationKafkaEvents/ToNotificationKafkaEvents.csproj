@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
         <TargetFramework>net8.0</TargetFramework>
@@ -10,8 +10,8 @@
         <Description>События, потребляемые микросервисом Notification.</Description>
         <PackageIcon>icon.png</PackageIcon>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <PackageProjectUrl>https://gitlab.com/carsharing-backend</PackageProjectUrl>
-        <RepositoryUrl>https://gitlab.com/carsharing-backend/contracts/kafka/notificationkafkamessages</RepositoryUrl>
+        <PackageProjectUrl>https://github.com/${{ github.repository_owner }}/${{ github.event.repository.name }}</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/${{ github.repository_owner }}/${{ github.event.repository.name }}</RepositoryUrl>
         <Version>1.2.1</Version>
         <RootNamespace>To.NotificationKafkaEvents</RootNamespace>
     </PropertyGroup>
